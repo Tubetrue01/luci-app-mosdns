@@ -419,14 +419,12 @@ return view.extend({
         o = s.taboption('basic', form.DummyValue, '_custom', _('Configuration Editor'));
         o.rows = 30;
         o.depends('configfile', configFile);
-
-        o.render = function (sid) {
+        o.renderWidget = function (sid) {
             const container = E('div', {'class': 'cm6-container'});
             container.style.minWidth = '0';
             container.style.width = "100%";
             container.style.maxWidth = "40rem";
             container.style.boxSizing = "border-box";
-
             container.style.overflow = "hidden";
             container.style.height = "28rem";
 
@@ -452,16 +450,13 @@ return view.extend({
                     }
                 }
 
-                return E('div', {'class': 'cbi-value'}, [
-                    E('label', {'class': 'cbi-value-title'}, [this.title]),
-                    E('div', {'class': 'cbi-value-field', 'style': 'display:flex; flex-direction:column;min-width:0;'}, [
-                        container,
-                        E('div', {
-                            'class': 'cbi-value-description',
-                            'style': 'margin-top: 0.5rem; max-width: 40rem; white-space: normal;'
-                        }, [
-                            _('This is the content of the file \'/etc/mosdns/config_custom.yaml\' from which your MosDNS configuration will be generated. Only accepts configuration content in yaml format.')
-                        ])
+                return E('div', {'style': 'display:flex; flex-direction:column; min-width:0; width:100%;'}, [
+                    container,
+                    E('div', {
+                        'class': 'cbi-value-description',
+                        'style': 'margin-top: 0.5rem; max-width: 40rem; white-space: normal;'
+                    }, [
+                        _('This is the content of the file \'/etc/mosdns/config_custom.yaml\' from which your MosDNS configuration will be generated. Only accepts configuration content in yaml format.')
                     ])
                 ]);
 					});
