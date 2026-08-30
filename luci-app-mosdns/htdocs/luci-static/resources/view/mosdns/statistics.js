@@ -535,8 +535,8 @@ const renderLogsTable = logsData => {
 		]),
 
 		E('div', { style: 'display: flex; justify-content: space-between; align-items: center; margin-top: 0.75rem;' }, [
-			E('span', { style: 'font-size: 0.85rem; opacity: 0.7;' }, _('Page %d / %d (%d entries)').format(pageIdx + 1, totalPages, total)),
-			E('div', { style: 'display: flex; gap: 0.5rem;' }, [
+			E('span', { style: 'padding-left: 0.5rem; font-size: 0.85rem; opacity: 0.7;' }, _('Page %d / %d (%d entries)').format(pageIdx + 1, totalPages, total)),
+			E('div', { style: 'padding: 0 0.5rem 0.5rem 0; display: flex; gap: 0.5rem;' }, [
 				E('button', {
 					class: 'btn cbi-button cbi-button-action',
 					disabled: pageIdx === 0 ? 'disabled' : null,
@@ -694,7 +694,7 @@ return view.extend({
 			]);
 		});
 
-		const controlBar = E('div', { style: 'display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 0.75rem;' }, [
+		const controlBar = E('div', { style: 'padding: 0.6rem; display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 0.75rem;' }, [
 			searchInput,
 			filterSelect,
 			resetPageBtn,
